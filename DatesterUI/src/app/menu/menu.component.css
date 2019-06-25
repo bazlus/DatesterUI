@@ -1,8 +1,15 @@
-ul{
-    list-style: none;
+ul {
+  list-style: none;
 }
 
-a{
-    padding: 5px;
-    margin: 5px;
+a {
+  padding: 5px;
+  margin: 5px;
+}
+
+.nav-container {
+  position: absolute;
+  right: 0px;
+  width: 200px;
+  padding: 5px;
 }
