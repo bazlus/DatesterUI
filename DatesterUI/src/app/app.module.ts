@@ -13,6 +13,8 @@ import { GalleriaModule } from 'primeng/galleria';
 import { AppRoutingModule } from './app-router.module';
 import { MatchService } from './services/match.service';
 import { DatesComponent } from './dates/dates.component';
+import { UserComponent } from './user/user.component';
+import { RegistrationModalComponent } from './user/registration-modal/registration-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { DatesComponent } from './dates/dates.component';
     MenuComponent,
     FindLoveComponent,
     DatesComponent,
+    UserComponent,
+    RegistrationModalComponent,
   ],
   imports: [
     BrowserModule,
