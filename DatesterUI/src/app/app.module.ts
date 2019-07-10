@@ -1,6 +1,8 @@
+import { MustMatchDirective } from './directives/must-match.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
@@ -25,6 +27,7 @@ import { RegistrationModalComponent } from './user/registration-modal/registrati
     DatesComponent,
     UserComponent,
     RegistrationModalComponent,
+    MustMatchDirective
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { RegistrationModalComponent } from './user/registration-modal/registrati
     GalleriaModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [MatchService],
   bootstrap: [AppComponent]
