@@ -9,7 +9,14 @@ export class UserComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    setTimeout(() => {
+      document.getElementById("openModalButton").click();
+    }, 1);
   }
 
+  changeActive(source, other) {
+    source.srcElement.classList.add("active");
+    other.classList.remove("active");
+  }
 }

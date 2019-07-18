@@ -16,7 +16,8 @@ import { AppRoutingModule } from './app-router.module';
 import { MatchService } from './services/match.service';
 import { DatesComponent } from './dates/dates.component';
 import { UserComponent } from './user/user.component';
-import { RegistrationModalComponent } from './user/registration-modal/registration-modal.component';
+import { RegistrationModalComponent } from './user/registration/registration-modal.component';
+import { LoginComponent } from './user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegistrationModalComponent } from './user/registration-modal/registrati
     DatesComponent,
     UserComponent,
     RegistrationModalComponent,
-    MustMatchDirective
+    MustMatchDirective,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="container">
+          <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+              <a #login (click)="changeActive($event, register)" routerLink="login" class="nav-link active">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a #register (click)="changeActive($event, login)" routerLink="registration" class="nav-link">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-body">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+<button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<!--End Modal-->

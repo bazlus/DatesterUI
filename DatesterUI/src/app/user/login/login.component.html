@@ -1,0 +1,28 @@
+<form #form="ngForm" (ngSubmit)="login(form.value)">
+  <div class="row">
+    <div class="col col-md-12">
+      <div class="form-group">
+        <label for="Email">Email address</label>
+        <input id="Email" type="email" class="form-control" name="Email" placeholder="Enter email" email
+          #email="ngModel" required ngModel>
+        <span class="text-danger" *ngIf="email.errors?.required && email.touched">Email is required</span>
+        <span class="text-danger" *ngIf="email.errors?.email && email.touched">Email must be a valid email
+          address</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-md-12">
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" name="Password" placeholder="Password" #password="ngModel" required
+          ngModel minlength="6">
+        <span class="text-danger" *ngIf="password.invalid && password.touched">Password must be at least 6
+          characters long</span>
+      </div>
+    </div>
+  </div>
+  <div class="col text-center">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">Log In</button>
+  </div>
+</form>
