@@ -7,10 +7,10 @@
         <div class="container">
           <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
-              <a #login (click)="changeActive($event, register)" routerLink="login" class="nav-link active">Sign In</a>
+              <a  [routerLinkActive]="'active'" routerLink="Login" class="nav-link">Sign In</a>
             </li>
             <li class="nav-item">
-              <a #register (click)="changeActive($event, login)" routerLink="registration" class="nav-link">Register</a>
+              <a  [routerLinkActive]="'active'" routerLink="Registration" class="nav-link">Register</a>
             </li>
           </ul>
         </div>
@@ -21,5 +21,5 @@
     </div>
   </div>
 </div>
-<button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<button id="openModalButton" style="display: none" data-toggle="modal" data-target="#myModal">Open Modal</button>
 <!--End Modal-->

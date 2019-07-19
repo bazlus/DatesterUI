@@ -18,6 +18,7 @@ import { DatesComponent } from './dates/dates.component';
 import { UserComponent } from './user/user.component';
 import { RegistrationModalComponent } from './user/registration/registration-modal.component';
 import { LoginComponent } from './user/login/login.component';
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { LoginComponent } from './user/login/login.component';
     UserComponent,
     RegistrationModalComponent,
     MustMatchDirective,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,11 @@ import { LoginComponent } from './user/login/login.component';
     GalleriaModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      preventDuplicates: false
+    })
   ],
   providers: [MatchService],
   bootstrap: [AppComponent]

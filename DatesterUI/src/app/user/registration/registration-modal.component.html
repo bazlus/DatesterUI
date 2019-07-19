@@ -88,6 +88,11 @@
     </div>
   </div>
   <div class="col text-center">
-    <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">Register</button>
+    <button [hidden]="registerButtonHidden" type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">Register</button>
+    <button [hidden]="loaderButtonHidden" class="btn btn-primary btn-block" disabled>
+      <span class="spinner-border spinner-border-sm"></span>
+      Loading..
+    </button>
   </div>
+ 
 </form>

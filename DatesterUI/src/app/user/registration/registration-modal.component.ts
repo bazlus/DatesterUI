@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { BirthDateConstants } from 'src/app/global-constants/global-constants';
+import { GlobalConstatns } from 'src/app/global-constants/global-constants';
 import { UserService } from 'src/app/services/user.service';
+import { NgForm, NgModelGroup } from '@angular/forms';
 
 declare var $: any
 
@@ -11,29 +12,45 @@ declare var $: any
 })
 export class RegistrationModalComponent implements OnInit {
 
-  private days = BirthDateConstants.days;
-  private months = BirthDateConstants.months;
-  private years = BirthDateConstants.years;
+  private days: number[] = GlobalConstatns.days;
+  private months: string[] = GlobalConstatns.months;
+  private years: number[] = GlobalConstatns.years;
 
+  loaderButtonHidden = true;
+  registerButtonHidden = false;
   selectedGender = 'Male';
   selectedDay = 1;
-  selectedMonth = 1;
+  selectedMonth = "January";
   selectedYear = 1990;
 
   constructor(private userService: UserService) { }
 
+  ngOnInit(): void {
+    $('#tokenfield').tokenfield();
+  }
+
   register(formData) {
+    this.loaderButtonHidden = false;
+    this.registerButtonHidden = true;
     let hobbies = $("#tokenfield").tokenfield('getTokens');
     formData.hobbies = hobbies.map(h => h.value);
-    formData.DateOfBirth = new Date(formData.Year, formData.Month, formData.Day);
-    this.userService.register(formData)
+    formData.DateOfBirth = new Date(formData.Year, this.getMonthNumber(formData.Month), formData.Day);
+    this.userService.register(formData);
 
   }
 
-  ngOnInit(): void {
-    // setTimeout(() => {
-    //   document.getElementById("openModalButton").click();
-    // }, 5000);
+  getMonthNumber(monthString: string): number {
+
+    let monthIndex = -1;
+
+    this.months.forEach((month, index) => {
+      if (month == monthString) {
+        monthIndex = index;
+      }
+    })
+
+    return monthIndex;
   }
+
 
 }

@@ -7,15 +7,15 @@ import { DatesComponent } from './dates/dates.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'user/login', pathMatch: 'full' },
+    { path: '', redirectTo: 'User/Login', pathMatch: 'full' },
     {
-        path: 'user', component: UserComponent, children: [
-            { path: 'registration', component: RegistrationModalComponent },
-            { path: 'login', component: LoginComponent }
+        path: 'User', component: UserComponent, children: [
+            { path: 'Registration', component: RegistrationModalComponent },
+            { path: 'Login', component: LoginComponent }
         ]
     },
-    { path: 'find-love', component: FindLoveComponent },
-    { path: 'dates', component: DatesComponent }
+    { path: 'Find-love', component: FindLoveComponent },
+    { path: 'Dates', component: DatesComponent }
 ]
 
 
