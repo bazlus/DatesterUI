@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare const $: any;
+
 @Component({
   selector: 'app-find-love',
   templateUrl: './find-love.component.html',
@@ -12,7 +14,6 @@ export class FindLoveComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
 
 }

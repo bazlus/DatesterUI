@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col col-md-12">
       <div class="form-group">
-        <label for="Email">Email address</label>
+        <label for="Email">Email</label>
         <input id="Email" type="email" class="form-control" name="Email" placeholder="Enter email" email
           #email="ngModel" required ngModel>
         <span class="text-danger" *ngIf="email.errors?.required && email.touched">Email is required</span>

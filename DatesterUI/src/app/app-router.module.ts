@@ -5,6 +5,7 @@ import { FindLoveComponent } from './find-love/find-love.component';
 import { RouterModule, Routes } from "@angular/router";
 import { DatesComponent } from './dates/dates.component';
 import { UserComponent } from './user/user.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'User/Login', pathMatch: 'full' },
@@ -15,7 +16,8 @@ const routes: Routes = [
         ]
     },
     { path: 'Find-love', component: FindLoveComponent },
-    { path: 'Dates', component: DatesComponent }
+    { path: 'Dates', component: DatesComponent },
+    { path: 'User/Profile', component: ProfileComponent }
 ]
 
 

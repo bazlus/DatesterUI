@@ -1,9 +1,9 @@
 
-export class User{
+export class User {
     firstName: string;
     lastName: string;
     description: string;
     age: number;
-    
-
+    email: string;
+    hobbies: string;
 }

@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
+import { APP_INITIALIZER } from '@angular/core';
+import { AppConfig } from './app-config/app-config';
 
 import { AppComponent } from './app.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
@@ -19,6 +21,11 @@ import { UserComponent } from './user/user.component';
 import { RegistrationModalComponent } from './user/registration/registration-modal.component';
 import { LoginComponent } from './user/login/login.component';
 import { ToastrModule } from "ngx-toastr";
+import { ProfileComponent } from './user/profile/profile.component';
+
+export function initializeApp(appConfig: AppConfig) {
+  return () => appConfig.load();
+}
 
 @NgModule({
   declarations: [
@@ -31,6 +38,7 @@ import { ToastrModule } from "ngx-toastr";
     RegistrationModalComponent,
     MustMatchDirective,
     LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,9 +52,17 @@ import { ToastrModule } from "ngx-toastr";
     ToastrModule.forRoot({
       timeOut: 2000,
       preventDuplicates: false
-    })
+    }),
   ],
-  providers: [MatchService],
+  providers: [
+    AppConfig,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [AppConfig], multi: true
+    },
+    MatchService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

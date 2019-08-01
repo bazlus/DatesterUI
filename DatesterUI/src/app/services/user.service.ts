@@ -1,6 +1,7 @@
+import { AppConfig } from './../app-config/app-config';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from './../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../entities/user-model';
 import { Router } from '@angular/router';
@@ -10,13 +11,15 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
+  api = AppConfig.settings.apiServer;
+
   constructor(private httpClient: HttpClient,
-              private router: Router,
-              private toastr: ToastrService) { }
+    private router: Router,
+    private toastr: ToastrService) { }
 
   register(userModel) {
     this.toastr.success("Registration Successful !")
-    this.httpClient.post(environment.urls.RegisterUserUrl, userModel)
+    this.httpClient.post(this.api.RegisterUserUrl, userModel)
       .subscribe(res => {
         this.router.navigate(["/dates"]);
       }, err => {
@@ -25,12 +28,26 @@ export class UserService {
   }
 
   login(loginModel) {
-    this.httpClient.post(environment.urls.LoginUserUrl, loginModel)
-    .subscribe (res => {
-      // TODO save token to local storage
-      console.log(res);
-    }, err => {
-      // TO handle errors 
-    })
+    this.httpClient.post(this.api.LoginUserUrl, loginModel)
+      .subscribe(res => {
+        // TODO save token to local storage
+        console.log(res);
+      }, err => {
+        // TO handle errors 
+      })
+  }
+
+  uploadImage(image: File) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': image.type,
+      })
+    };
+    this.httpClient.post(this.api.UploadImageUrl, image, httpOptions)
+      .subscribe(res => {
+        console.log(res);
+      }, err => {
+        //handel
+      })
   }
 }

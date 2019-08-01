@@ -4,10 +4,7 @@
 
 export const environment = {
   production: false,
-  urls: {
-    RegisterUserUrl: "http://localhost:6618/api/Users/Register",
-    LoginUserUrl: "http://localhost:6618/api/Users/Login"
-  }
+  name: 'dev'
 };
 
 /*
