@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -15,8 +16,12 @@ export class UserComponent implements OnInit {
     }, 2000);
   }
 
-  changeActive(source, other) {
-    // source.srcElement.classList.add("active");
-    // other.classList.remove("active");
+  facebookLogin() {
+    this.httpClient.get("http://localhost:49889/signin-facebook")
+      .subscribe(res => {
+        console.log(res)
+      }, err =>{  
+        console.log(err)
+      });
   }
 }

@@ -9,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  loginButtonHidden = false;
+  loadingButtonHidden = true;
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
 
   login(formData: NgForm){
-    this.userService.login(formData)
+    this.loadingButtonHidden = false;
+    this.loginButtonHidden = true;
+
+    var result = this.userService.login(formData)
   }
 }

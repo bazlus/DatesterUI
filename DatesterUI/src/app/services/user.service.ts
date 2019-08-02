@@ -18,9 +18,9 @@ export class UserService {
     private toastr: ToastrService) { }
 
   register(userModel) {
-    this.toastr.success("Registration Successful !")
     this.httpClient.post(this.api.RegisterUserUrl, userModel)
       .subscribe(res => {
+        this.toastr.success("Registration Successful !")
         this.router.navigate(["/dates"]);
       }, err => {
         this.router.navigate
