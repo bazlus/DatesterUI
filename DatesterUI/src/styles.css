@@ -11,9 +11,10 @@
 @import '../node_modules/ngx-toastr/toastr.css';
 
 body {
-  background-image: url('assets/pink-pattern-stock-wallpaper.jpg');
-  -webkit-background-size: cover;
+  background-image: url('assets/cubes.png'), url('assets/pinkOpacity.png');
+  /* -webkit-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -o-background-size: cover; */
+  background-size: auto;
+  height: 100%;
 }
