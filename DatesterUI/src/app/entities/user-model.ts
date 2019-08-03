@@ -1,4 +1,3 @@
-
 export class User {
     firstName: string;
     lastName: string;
@@ -6,4 +5,6 @@ export class User {
     age: number;
     email: string;
     hobbies: string;
+    gender: string;
+    photos: [];
 }

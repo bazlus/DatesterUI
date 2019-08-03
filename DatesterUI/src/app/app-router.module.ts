@@ -6,18 +6,20 @@ import { RouterModule, Routes } from "@angular/router";
 import { DatesComponent } from './dates/dates.component';
 import { UserComponent } from './user/user.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { AuthGuardService as AuthGuard } from './services/guards/auth-guard.service';
+import { ReverseAuthGuardService as ReverseAuthGuard } from "./services/guards/auth-guard-reverse.service";
 
 const routes: Routes = [
-    { path: '', redirectTo: 'user/login', pathMatch: 'full' },
+    { path: '', redirectTo: 'user/profile', pathMatch: 'full', canActivate: [AuthGuard] },
     {
         path: 'user', component: UserComponent, children: [
-            { path: 'registration', component: RegistrationModalComponent },
-            { path: 'login', component: LoginComponent }
+            { path: 'registration', component: RegistrationModalComponent, canActivate: [ReverseAuthGuard] },
+            { path: 'login', component: LoginComponent, canActivate: [ReverseAuthGuard] }
         ]
     },
-    { path: 'find-love', component: FindLoveComponent },
-    { path: 'dates', component: DatesComponent },
-    { path: 'user/profile', component: ProfileComponent }
+    { path: 'find-love', component: FindLoveComponent, canActivate: [AuthGuard] },
+    { path: 'dates', component: DatesComponent, canActivate: [AuthGuard] },
+    { path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard] }
 ]
 
 

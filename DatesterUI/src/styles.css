@@ -12,9 +12,9 @@
 
 body {
   background-image: url('assets/cubes.png'), url('assets/pinkOpacity.png');
-  /* -webkit-background-size: cover;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover; */
+  -o-background-size: cover;
   background-size: auto;
   height: 100%;
 }

@@ -10,7 +10,7 @@ declare var $: any
   templateUrl: './registration-modal.component.html',
   styleUrls: ['./registration-modal.component.css']
 })
-export class RegistrationModalComponent implements OnInit {
+export class RegistrationModalComponent implements AfterViewInit {
 
   private days: number[] = GlobalConstatns.days;
   private months: string[] = GlobalConstatns.months;
@@ -25,7 +25,7 @@ export class RegistrationModalComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     $('.tokenfield').tokenfield();
   }
 
@@ -35,7 +35,7 @@ export class RegistrationModalComponent implements OnInit {
     let hobbies = $("#tokenfield").tokenfield('getTokens');
     formData.hobbies = hobbies.map(h => h.value);
     formData.DateOfBirth = new Date(formData.Year, this.getMonthNumber(formData.Month), formData.Day);
-    var result = await this.userService.register(formData);
+    let result: boolean = await this.userService.register(formData);
 
     if (!result) {
       this.loaderButtonHidden = true;

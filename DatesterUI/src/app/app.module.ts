@@ -1,3 +1,5 @@
+import { AuthGuardService } from './services/guards/auth-guard.service';
+import { UserService } from './services/user.service';
 import { MustMatchDirective } from './directives/must-match.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,9 +24,18 @@ import { RegistrationModalComponent } from './user/registration/registration-mod
 import { LoginComponent } from './user/login/login.component';
 import { ToastrModule } from "ngx-toastr";
 import { ProfileComponent } from './user/profile/profile.component';
+import { JwtModule } from "@auth0/angular-jwt";
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { ReverseAuthGuardService } from './services/guards/auth-guard-reverse.service';
+
+
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
+}
+
+export function tokenGetter() {
+  return localStorage.getItem("token");
 }
 
 @NgModule({
@@ -49,6 +60,12 @@ export function initializeApp(appConfig: AppConfig) {
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ["localhost:6618"]
+      }
+    }),
     ToastrModule.forRoot({
       timeOut: 5000,
       preventDuplicates: false
@@ -61,7 +78,10 @@ export function initializeApp(appConfig: AppConfig) {
       useFactory: initializeApp,
       deps: [AppConfig], multi: true
     },
-    MatchService
+    MatchService,
+    JwtHelperService,
+    AuthGuardService,
+    ReverseAuthGuardService
   ],
   bootstrap: [AppComponent]
 })

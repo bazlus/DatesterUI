@@ -16,18 +16,16 @@ export class ProfileComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.userService.getCurrentUser()
+      .subscribe(user => {
+        this.userModel = user
+      });
     this.images = [];
 
-    this.images.push({ url: '../../../assets/DatesterLogo.png' });
+    this.images.push();
     this.images.push({ url: '../../../assets/pink-pattern-stock-wallpaper.jpg' });
 
-    this.userModel = new User();
-    this.userModel.lastName = "Mihaylov";
-    this.userModel.firstName = "Boyan";
-    this.userModel.age = 22;
-    this.userModel.description = "Description......................sadkaoskdasodjoasdhasudhasidhasiudjsaodijasdijasiodasjudohasiduahui...";
-    this.userModel.email = "email@email.com";
   }
 
   load(event) {

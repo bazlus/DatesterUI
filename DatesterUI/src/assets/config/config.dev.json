@@ -5,6 +5,7 @@
   "apiServer": {
     "RegisterUserUrl": "http://localhost:6618/api/Users/Register",
     "LoginUserUrl": "http://localhost:6618/api/Users/Login",
-    "UploadImageUrl": "http://localhost:6618/api/Users/Upload-image"
+    "UploadImageUrl": "http://localhost:6618/api/Users/Upload-image",
+    "GetCurrentUserUrl": "http://localhost:6618/api/Users/Profile"
   }
 }

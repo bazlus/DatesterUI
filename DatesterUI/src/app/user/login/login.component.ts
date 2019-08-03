@@ -17,10 +17,15 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(formData: NgForm) {
+  async login(formData: NgForm) {
     this.loadingButtonHidden = false;
     this.loginButtonHidden = true;
 
-    var result = this.userService.login(formData)
+    var result = await this.userService.login(formData)
+
+    if (!result) {
+      this.loadingButtonHidden = true;
+      this.loginButtonHidden = false;
+    }
   }
 }

@@ -6,11 +6,6 @@ export interface IAppConfig {
         RegisterUserUrl: string;
         LoginUserUrl: string;
         UploadImageUrl: string;
-    };
-    cloudinary: {
-        CloudName: string;
-        ApiKey: string;
-        ApiSecret: string;
-        EnvironmentVariable: string;
+        GetCurrentUserUrl: string;
     };
 }
