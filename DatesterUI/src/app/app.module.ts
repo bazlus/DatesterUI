@@ -50,7 +50,7 @@ export function initializeApp(appConfig: AppConfig) {
     HttpClientModule,
     FormsModule,
     ToastrModule.forRoot({
-      timeOut: 2000,
+      timeOut: 5000,
       preventDuplicates: false
     }),
   ],

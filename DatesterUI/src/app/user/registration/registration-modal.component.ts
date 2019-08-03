@@ -26,16 +26,21 @@ export class RegistrationModalComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    $('#tokenfield').tokenfield();
+    $('.tokenfield').tokenfield();
   }
 
-  register(formData) {
+  async register(formData) {
     this.loaderButtonHidden = false;
     this.registerButtonHidden = true;
     let hobbies = $("#tokenfield").tokenfield('getTokens');
     formData.hobbies = hobbies.map(h => h.value);
     formData.DateOfBirth = new Date(formData.Year, this.getMonthNumber(formData.Month), formData.Day);
-    this.userService.register(formData);
+    var result = await this.userService.register(formData);
+
+    if (!result) {
+      this.loaderButtonHidden = true;
+      this.registerButtonHidden = false;
+    }
 
   }
 

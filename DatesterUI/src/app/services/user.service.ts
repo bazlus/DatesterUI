@@ -17,20 +17,27 @@ export class UserService {
     private router: Router,
     private toastr: ToastrService) { }
 
-  register(userModel) {
-    this.toastr.success("Registration Successful !")
-    this.httpClient.post(this.api.RegisterUserUrl, userModel)
-      .subscribe(res => {
-        this.router.navigate(["/dates"]);
-      }, err => {
-        this.router.navigate
+  async register(userModel): Promise<boolean> {
+    console.log(userModel)
+    var result = await this.httpClient.post(this.api.RegisterUserUrl, userModel)
+      .toPromise().then(res => {
+        this.toastr.success("Registration Successful")
+        this.login(userModel);
+        return true;
+      }).catch(err => {
+        if (err.error.errors[0].code === "DuplicateUserName") {
+          this.toastr.error("Email is already taken")
+          return false;
+        }
       })
+
+    return result;
+
   }
 
   login(loginModel) {
     this.httpClient.post(this.api.LoginUserUrl, loginModel)
-      .subscribe(res => {
-        // TODO save token to local storage
+      .toPromise().then(res => {
         console.log(res);
       }, err => {
         // TO handle errors 

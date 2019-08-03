@@ -8,21 +8,23 @@ import { UserComponent } from './user/user.component';
 import { ProfileComponent } from './user/profile/profile.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'User/Login', pathMatch: 'full' },
+    { path: '', redirectTo: 'user/login', pathMatch: 'full' },
     {
-        path: 'User', component: UserComponent, children: [
-            { path: 'Registration', component: RegistrationModalComponent },
-            { path: 'Login', component: LoginComponent }
+        path: 'user', component: UserComponent, children: [
+            { path: 'registration', component: RegistrationModalComponent },
+            { path: 'login', component: LoginComponent }
         ]
     },
-    { path: 'Find-love', component: FindLoveComponent },
-    { path: 'Dates', component: DatesComponent },
-    { path: 'User/Profile', component: ProfileComponent }
+    { path: 'find-love', component: FindLoveComponent },
+    { path: 'dates', component: DatesComponent },
+    { path: 'user/profile', component: ProfileComponent }
 ]
 
 
 @NgModule({
     exports: [RouterModule],
-    imports: [RouterModule.forRoot(routes)]
+    imports: [RouterModule.forRoot(routes, {
+        onSameUrlNavigation: "reload"
+    })]
 })
 export class AppRoutingModule { }

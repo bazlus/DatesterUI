@@ -82,17 +82,18 @@
     <div class="col col-12-sm">
       <div class="form-group">
         <label for="Description">Hobbies</label>
-        <input type="text" class="form-control" name="hobbies" id="tokenfield" value="Running" />
+        <input type="text" class="form-control tokenfield" name="hobbies" id="tokenfield" value="Running" />
 
       </div>
     </div>
   </div>
   <div class="col text-center">
-    <button [hidden]="registerButtonHidden" type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">Register</button>
+    <button [hidden]="registerButtonHidden" type="submit" [disabled]="form.invalid"
+      class="btn btn-primary btn-block">Register</button>
     <button [hidden]="loaderButtonHidden" class="btn btn-primary btn-block" disabled>
       <span class="spinner-border spinner-border-sm"></span>
       Loading..
     </button>
   </div>
- 
+
 </form>

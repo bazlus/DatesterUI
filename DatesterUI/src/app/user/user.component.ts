@@ -12,11 +12,6 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       document.getElementById("openModalButton").click();
-    }, 2000);
-  }
-
-  changeActive(source, other) {
-    // source.srcElement.classList.add("active");
-    // other.classList.remove("active");
+    }, 1000);
   }
 }
