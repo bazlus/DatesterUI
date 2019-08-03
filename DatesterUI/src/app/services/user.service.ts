@@ -19,7 +19,7 @@ export class UserService {
 
   async register(userModel): Promise<boolean> {
     console.log(userModel)
-    var result = await this.httpClient.post(this.api.RegisterUserUrl, userModel)
+    let result: boolean = await this.httpClient.post(this.api.RegisterUserUrl, userModel)
       .toPromise().then(res => {
         this.toastr.success("Registration Successful")
         this.login(userModel);
@@ -31,8 +31,7 @@ export class UserService {
         }
       })
 
-    return result;
-
+    return result
   }
 
   login(loginModel) {
@@ -50,6 +49,7 @@ export class UserService {
         'Content-Type': image.type,
       })
     };
+
     this.httpClient.post(this.api.UploadImageUrl, image, httpOptions)
       .subscribe(res => {
         console.log(res);
@@ -57,4 +57,5 @@ export class UserService {
         //handel
       })
   }
+
 }
