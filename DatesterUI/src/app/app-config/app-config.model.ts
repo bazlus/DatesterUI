@@ -7,5 +7,8 @@ export interface IAppConfig {
         LoginUserUrl: string;
         UploadImageUrl: string;
         GetCurrentUserUrl: string;
+        GetPhotoUrl: string;
+        GetPotentialMatches: string;
+        AddUserOperation: string;
     };
 }

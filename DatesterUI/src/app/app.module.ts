@@ -29,7 +29,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { ReverseAuthGuardService } from './services/guards/auth-guard-reverse.service';
 
 
-
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
 }

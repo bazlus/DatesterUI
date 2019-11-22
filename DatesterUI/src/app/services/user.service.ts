@@ -71,6 +71,10 @@ export class UserService {
     return this.httpClient.get(this.api.GetCurrentUserUrl);
   }
 
+  getImage(id: number, email = null): Promise<any> {
+    return this.httpClient.post(this.api.GetPhotoUrl, { photoId: id, email }, { responseType: 'blob' }).toPromise();
+  }
+
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
 

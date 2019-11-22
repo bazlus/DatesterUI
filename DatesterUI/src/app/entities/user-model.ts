@@ -6,5 +6,6 @@ export class User {
     email: string;
     hobbies: string;
     gender: string;
-    photos: [];
+    photosCount: number;
+    images: any[];
 }

@@ -1,16 +1,17 @@
-<div class="container emp-profile">
-
+<div class="container emp-profile" *ngIf="images">
   <div class="row">
-    <div class="col-md-4">
+  </div>
+  <div class="row">
+    <div class="col col-md-4">
       <div class="profile-img">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li *ngFor="let image of images; let i = index" data-target="#carouselExampleIndicators" data-slide-to="i"
               class="active"></li>
           </ol>
-          <div class="carousel-inner" role="listbox">
+          <div *ngIf="showImages" class="carousel-inner" role="listbox">
             <div *ngFor="let image of images; let i = index" [ngClass]="(i == 1) ? 'active' : ''" class="carousel-item">
-              <img class="d-block w-100" src="{{image.url}}" alt="First slide">
+              <img class="d-block w-100" [src]="getImageUrl(i)" alt="First slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -64,15 +65,15 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label>Last Name</label>
+                <label>Last Name:</label>
               </div>
               <div class="col-md-6">
-                <p>{{ userModel.lastName }}</p>
+                <label>{{ userModel.lastName }}</label>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label>Email</label>
+                <label>Email: </label>
               </div>
               <div class="col-md-6">
                 <p>{{ userModel.email }}</p>
@@ -80,7 +81,7 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label>Age</label>
+                <label>Age: </label>
               </div>
               <div class="col-md-6">
                 <p>{{ userModel.age }}</p>
@@ -88,10 +89,10 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label>Hobbies</label>
+                <label>Hobbies: </label>
               </div>
               <div class="col-md-6">
-                <p>Web Developer and Designer</p>
+                <p>{{ userModel.hobbies }}</p>
               </div>
             </div>
           </div>

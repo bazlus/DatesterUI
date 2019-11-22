@@ -14,6 +14,6 @@ export class UserComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       document.getElementById("openModalButton").click();
-    }, 1000);
+    }, 1);
   }
 }

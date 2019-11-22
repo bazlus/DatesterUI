@@ -5,7 +5,10 @@
   "apiServer": {
     "RegisterUserUrl": "http://localhost:6618/api/Users/Register",
     "LoginUserUrl": "http://localhost:6618/api/Users/Login",
-    "UploadImageUrl": "http://localhost:6618/api/Users/Upload-image",
-    "GetCurrentUserUrl": "http://localhost:6618/api/Users/Profile"
+    "UploadImageUrl": "http://localhost:6618/api/Users/Upload-Image",
+    "GetCurrentUserUrl": "http://localhost:6618/api/Users/Profile",
+    "GetPhotoUrl": "http://localhost:6618/api/Users/Image",
+    "GetPotentialMatches": "http://localhost:6618/api/Match/Potential-Matches",
+    "AddUserOperation": "http://localhost:6618/api/Match/Operation"
   }
 }

@@ -47,6 +47,10 @@
   vertical-align: middle;
 }
 
+.bio {
+  color: #0062cc;
+}
+
 .wordwrap {
   white-space: pre-wrap;
   /* CSS3 */
