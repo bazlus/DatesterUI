@@ -21,26 +21,17 @@ export class ProfileComponent implements OnInit {
     private sanitizer: DomSanitizer) { }
 
   async ngOnInit() {
-
     this.userService.getCurrentUser()
       .subscribe(async user => {
         this.userModel = user;
-        this.images = [];
-        for (let i = 0; i < user.photosCount; i++) {
-          let resImage = await this.userService.getImage(i)
-          var imageUrl = URL.createObjectURL(resImage);
-          this.images.push({ "url": imageUrl });
-
-          if (this.images.length === this.userModel.photosCount) {
-            this.showImages = true;
-          }
-        }
+        this.images = user.photoUrls;
+        this.showImages = true;
       });
   }
 
-  getImageUrl(): SafeUrl {
+  getImageUrl(index): SafeUrl {
     this.photoId++;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.images[this.photoId].url);
+    return this.images[index];
   }
 
   load(event) {

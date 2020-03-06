@@ -27,6 +27,8 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { JwtModule } from "@auth0/angular-jwt";
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ReverseAuthGuardService } from './services/guards/auth-guard-reverse.service';
+import { ConfirmDialogComponent } from './Shared/confirm-dialog/confirm-dialog.component';
+import { LogoutComponent } from './user/logout/logout/logout.component';
 
 
 export function initializeApp(appConfig: AppConfig) {
@@ -49,6 +51,8 @@ export function tokenGetter() {
     MustMatchDirective,
     LoginComponent,
     ProfileComponent,
+    ConfirmDialogComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,11 +66,11 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ["localhost:6618"]
+        whitelistedDomains: ["localhost:5001"]
       }
     }),
     ToastrModule.forRoot({
-      timeOut: 5000,
+      timeOut: 2000,
       preventDuplicates: false
     }),
   ],

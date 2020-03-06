@@ -11,5 +11,11 @@ a {
   position: absolute;
   right: 0px;
   width: 200px;
-  padding: 5px;
+  padding-right: 10px;
+  height: 100%;
+}
+
+.log-out{
+ position: absolute;
+ bottom: 0;
 }

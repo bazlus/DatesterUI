@@ -1,4 +1,4 @@
-<div class="container emp-profile" *ngIf="images">
+<div class="container emp-profile" *ngIf="userModel">
   <div class="row">
   </div>
   <div class="row">
@@ -10,7 +10,7 @@
               class="active"></li>
           </ol>
           <div *ngIf="showImages" class="carousel-inner" role="listbox">
-            <div *ngFor="let image of images; let i = index" [ngClass]="(i == 1) ? 'active' : ''" class="carousel-item">
+            <div *ngFor="let image of images; let i = index" [ngClass]="(i == 0) ? 'active' : ''" class="carousel-item">
               <img class="d-block w-100" [src]="getImageUrl(i)" alt="First slide">
             </div>
           </div>

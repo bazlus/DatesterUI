@@ -3,12 +3,12 @@
     "name": "DEV"
   },
   "apiServer": {
-    "RegisterUserUrl": "http://localhost:6618/api/Users/Register",
-    "LoginUserUrl": "http://localhost:6618/api/Users/Login",
-    "UploadImageUrl": "http://localhost:6618/api/Users/Upload-Image",
-    "GetCurrentUserUrl": "http://localhost:6618/api/Users/Profile",
-    "GetPhotoUrl": "http://localhost:6618/api/Users/Image",
-    "GetPotentialMatches": "http://localhost:6618/api/Match/Potential-Matches",
-    "AddUserOperation": "http://localhost:6618/api/Match/Operation"
+    "RegisterUserUrl": "https://localhost:5001/api/Users/Register",
+    "LoginUserUrl": "https://localhost:5001/api/Users/Login",
+    "UploadImageUrl": "https://localhost:5001/api/Users/Upload-Image",
+    "GetCurrentUserUrl": "https://localhost:5001/api/Users/Profile",
+    "GetPhotoUrl": "https://localhost:5001/api/Users/Image",
+    "GetPotentialMatches": "https://localhost:5001/api/Match/Potential-Matches",
+    "AddUserOperation": "https://localhost:5001/api/Match/Operation"
   }
 }
